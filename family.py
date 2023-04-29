@@ -20,7 +20,9 @@ class Person:
               sector, 
               wagehour, 
               school, 
-              nlincome):
+              nlincome,
+              hours,
+              part):
     self.id = id
     self.family_id = family_id
     self.pco1 = pco1
@@ -32,6 +34,8 @@ class Person:
     self.wagehour = wagehour
     self.school = school
     self.nlincome = nlincome
+    self.hours = hours
+    self.part = part
      
   def dummy_nworkers(self):
     result = [0,0,0,0,0]
@@ -45,10 +49,12 @@ class Person:
       result[3] = 1
     elif self.numtrab == "F":
       result[4] = 1
+    elif self.numtrab == "X":
+      result[4] = "."
     return result
   
   def ismarried(self):
-    if self.married == "Casado(a)":
+    if self.married == "Casado(a)" or self.married == "Conviviente o pareja":
       return 1
     else:
       return 0
@@ -71,6 +77,8 @@ class Person:
       result[6] = 1
     elif self.sector == "SERVICIOS COMUNALES SOCIALES":
       result[7] = 1
+    elif self.sector == "ACT. NO BIEN ESPECIFICADAS":
+      result[7] = "."
     
     return result
 
@@ -79,6 +87,22 @@ class Person:
       return log(float(self.wagehour))
     except:
       pass
+    return "."
+  
+  def parcial(self):
+    if self.hours.isnumeric():
+      if int(self.hours) <= 30:
+        return 1
+      else:
+        return 0
+    return "."
+   
+  def isfemale(self):
+    if self.sex == "Mujer":
+      return 1
+    else:
+      return 0
+    
   
 
 

@@ -27,6 +27,9 @@ with open("muestra06.csv", 'r', encoding="latin-1") as file:
     # salario
     wage = line[22]
 
+    # particip
+    part = line[21]
+
     # rol
     rol = line[3]
 
@@ -45,6 +48,10 @@ with open("muestra06.csv", 'r', encoding="latin-1") as file:
     # numero de trabajadores
     numtrab = line[8]
 
+    # horas de trabajo
+    hours = line[9]
+
+
     person = Person(person_id,
                     family_id,
                     rol,
@@ -55,7 +62,9 @@ with open("muestra06.csv", 'r', encoding="latin-1") as file:
                     industry,
                     wage,
                     school,
-                    nlincome)
+                    nlincome,
+                    hours,
+                    part)
     
     persons[person_id] = person
     person_id = person_id + 1
