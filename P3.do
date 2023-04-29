@@ -70,12 +70,16 @@ disp atan(/K)/_pi + 0.5
 program define objective
 	args lnf G R Q K
 	tempvar Ga Ra Qa Ka
-	quietly gen double `Ga' = atan(`G')/_pi + .5
-	quietly gen double `Ra' = atan(`R')/_pi + .5
-	quietly gen double `Qa' = atan(`Q')/_pi + .5
-	quietly gen double `Ka' = atan(`K')/_pi + .5
+	quietly gen double `Ga' = atan(`G')/_pi + 0.5
+	quietly gen double `Ra' = atan(`R')/_pi + 0.5
+	quietly gen double `Qa' = atan(`Q')/_pi + 0.5
+	quietly gen double `Ka' = atan(`K')/_pi + 0.5
 	
-	quietly replace `lnf' = (`Ra')*binomialp($ML_y1 , 1, (`Ga')*(1 - (`Qa')))*binomialp($ML_y2 ,7,.5*(1 + (`Ga'))*(1 - (`Qa'))) + (1 - (`Ra'))*binomialp($ML_y1 ,1,(`Ka')*(`Ga'))*binomialp($ML_y2 ,7,.5*(1 +(`Ka')*(`Ga')))
+	quietly replace `lnf' = ///
+	ln((`Ra')*binomialp(1,$ML_y1 , (`Ga')*(1 - (`Qa')))* ///
+	binomialp(7,$ML_y2 ,0.5*(1 + (`Ga'))*(1 - (`Qa'))) ///
+	+ (1 - (`Ra'))*binomialp(1,$ML_y1 ,(`Ka')*(`Ga'))* ///
+	binomialp(7,$ML_y2 ,0.5*(1 +(`Ka')*(`Ga'))))
 end
 
 ml model lf objective (s x=) (s x=) (s x=) (s x=)

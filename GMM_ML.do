@@ -19,6 +19,7 @@ gmm (`m1')(`m2'), winitial(identity)
 program define obj
 	version 1.0
 	args lnf mu
+	
 	quietly replace `lnf'=ln(normd(($ML_y1 -`mu')/1))
 end
 
