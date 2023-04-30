@@ -96,6 +96,11 @@ class Person:
       else:
         return 0
     return "."
+  
+  def work_hours(self):
+    if self.hours.isnumeric():
+      return int(self.hours)
+    return "."
    
   def isfemale(self):
     if self.sex == "Mujer":

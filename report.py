@@ -13,7 +13,7 @@ def agemembers(minage, maxage, person, family):
     return n 
 
 with open("data_p1.csv", mode= "w", encoding= "latin-1") as file:
-  file.write("""parcial,parti,edad,edad2,escolaridad,casada,N(0_5),N(6_17),D[2_5],D[6_9],D[10_49],D[50_199],D[200+],D[minas],D[manu],D[EGA],D[constru],D[comercio],D[transporte],D[serv fin],D[servicios],Log_salario,nlingreso,N(18+),mujer""" + "\n")
+  file.write("""parcial,parti,edad,edad2,escolaridad,casada,N(0_5),N(6_17),D[2_5],D[6_9],D[10_49],D[50_199],D[200+],D[minas],D[manu],D[EGA],D[constru],D[comercio],D[transporte],D[serv fin],D[servicios],Log_salario,nlingreso,N(18+),mujer,horas""" + "\n")
   for key,person in agents.items():
     record = []
     # dependent variable
@@ -44,12 +44,14 @@ with open("data_p1.csv", mode= "w", encoding= "latin-1") as file:
     record.append(agemembers(18, 200, person, households[person.family_id]))
     # sex
     record.append(person.isfemale())
+    # horas
+    record.append(person.work_hours())
     
     record = [str(j) for j in record]
     file.write((",").join(record) + "\n")
 
 with open("selected.csv", mode= "w", encoding= "latin-1") as file:
-  file.write("""parcial,parti,edad,edad2,escolaridad,casada,N(0_5),N(6_17),D[2_5],D[6_9],D[10_49],D[50_199],D[200+],D[minas],D[manu],D[EGA],D[constru],D[comercio],D[transporte],D[serv fin],D[servicios],Log_salario,nlingreso,N(18+),mujer""" + "\n")
+  file.write("""parcial,parti,edad,edad2,escolaridad,casada,N(0_5),N(6_17),D[2_5],D[6_9],D[10_49],D[50_199],D[200+],D[minas],D[manu],D[EGA],D[constru],D[comercio],D[transporte],D[serv fin],D[servicios],Log_salario,nlingreso,N(18+),mujer,horas""" + "\n")
   for key,person in agents.items():
     if person.part == "1" and person.isfemale() == 1 and person.parcial() != "." and person.lnwage() != "." and person.school != '' and not("." in person.dummy_nworkers()) and not("." in person.which_industry()):
       record = []

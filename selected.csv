@@ -1,4 +1,4 @@
-parcial,parti,edad,edad2,escolaridad,casada,N(0_5),N(6_17),D[2_5],D[6_9],D[10_49],D[50_199],D[200+],D[minas],D[manu],D[EGA],D[constru],D[comercio],D[transporte],D[serv fin],D[servicios],Log_salario,nlingreso,N(18+),mujer
+parcial,parti,edad,edad2,escolaridad,casada,N(0_5),N(6_17),D[2_5],D[6_9],D[10_49],D[50_199],D[200+],D[minas],D[manu],D[EGA],D[constru],D[comercio],D[transporte],D[serv fin],D[servicios],Log_salario,nlingreso,N(18+),mujer,horas
 0,1,45,2025,10,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,6.769931487179149,0,3,1
 0,1,50,2500,10,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,7.1878190557716986,0,5,1
 0,1,25,625,12,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,6.97427599053162,0,5,1
