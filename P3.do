@@ -37,10 +37,9 @@ local m4 (`Vx') - ((`Ex')*(1-(`Ex')))/7 - 6*(`Cxx')/7
 
 gmm (`m1')(`m2')(`m3')(`m4'), winitial(identity)
 
-disp atan(/G)/_pi + 0.5
-disp atan(/R)/_pi + 0.5
-disp atan(/Q)/_pi + 0.5
-disp atan(/K)/_pi + 0.5
+nlcom (atan(/G)/_pi + 0.5) (atan(/R)/_pi + 0.5) (atan(/Q)/_pi + 0.5) (atan(/K)/_pi + 0.5)
+
+estadd r(table)
 
 * replacing m1 with seven moments conditions
 
@@ -55,10 +54,9 @@ local mr10 rr10 - (`Ex')
 gmm (`m1')(`mr1')(`mr2')(`mr3')(`mr5')(`mr6')(`mr8')(`mr10')(`m3') /// 
 (`m4'), winitial(identity)
 
-disp atan(/G)/_pi + 0.5
-disp atan(/R)/_pi + 0.5
-disp atan(/Q)/_pi + 0.5
-disp atan(/K)/_pi + 0.5
+nlcom (atan(/G)/_pi + 0.5) (atan(/R)/_pi + 0.5) (atan(/Q)/_pi + 0.5) (atan(/K)/_pi + 0.5)
+
+estadd r(table)
 
 * d 
 
@@ -85,6 +83,10 @@ end
 ml model lf objective (s x=) (s x=) (s x=) (s x=)
 ml max
 
+disp atan(/eq1)/_pi + 0.5
+disp atan(/eq2)/_pi + 0.5
+disp atan(/eq3)/_pi + 0.5
+disp atan(/eq4)/_pi + 0.5
 
 
 

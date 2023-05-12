@@ -60,29 +60,31 @@ class Person:
       return 0
   
   def which_industry(self):
+    sec = self.sector.strip()
     result = [0,0,0,0,0,0,0,0]
-    if self.sector == "EXPLOTACION MINAS Y CANTERAS":
+    if sec == "EXPLOTACION MINAS Y CANTERAS":
       result[0] = 1
-    elif self.sector == "IND.MANUFACTURERAS":
+    elif sec == "IND.MANUFACTURERAS":
       result[1] = 1
-    elif self.sector == "ELECTRICIDAD GAS Y AGUA":
+    elif sec == "ELECTRICIDAD GAS Y AGUA":
       result[2] = 1
-    elif self.sector == "CONSTRUCCION":
+    elif sec == "CONSTRUCCION":
       result[3] = 1
-    elif self.sector == "COMERCIO MAYOR/MENOR REST.HOTELES":
+    elif sec == "COMERCIO MAYOR/MENOR REST.HOTELES":
       result[4] = 1
-    elif self.sector == "TRANSPORTE Y COMUNICACIONES":
+    elif sec == "TRANSPORTE Y COMUNICACIONES":
       result[5] = 1
-    elif self.sector == "ESTAB.FINANCIEROS SEGUROS":
+    elif sec == "ESTAB.FINANCIEROS SEGUROS":
       result[6] = 1
-    elif self.sector == "SERVICIOS COMUNALES SOCIALES":
+    elif sec == "SERVICIOS COMUNALES SOCIALES":
       result[7] = 1
-    elif self.sector == "ACT. NO BIEN ESPECIFICADAS":
+    elif sec == "ACT. NO BIEN ESPECIFICADAS":
       result[7] = "."
     
     return result
 
   def lnwage(self):
+
     try:
       return log(float(self.wagehour))
     except:
@@ -90,7 +92,7 @@ class Person:
     return "."
   
   def parcial(self):
-    if self.hours.isnumeric():
+    if self.hours.strip().isnumeric():
       if int(self.hours) <= 30:
         return 1
       else:
